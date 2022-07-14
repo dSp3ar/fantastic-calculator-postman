@@ -1,0 +1,159 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background: linear-gradient(to right, #a9e34b, #82c91e, #0acf34);
+    background-size: 400% 400%;
+    animation: gradient 5s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0%;
+    }
+    50% {
+        background-position: 100%;
+    }
+    100% {
+        background-position: 0%;
+    }
+}
+
+header {
+    font-family: 'Koulen', cursive;
+    font-size: 5rem;
+    color: #212529;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header h1 {
+    background: linear-gradient(to right, #d6336c, #fcc419, #e03131, #be4bdb);
+    background-clip: text;
+    background-size: 400% 400%;
+    animation: gradient 1s ease infinite;
+    -webkit-text-fill-color: transparent;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+}
+
+#calculator {
+    min-width: 50rem;
+    max-width: 70rem;
+    height: 45rem;
+    background-color: #82c91e;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 5rem;
+}
+
+#calculator #inputs {
+    font-size: 1.8rem;
+    color: #fff;
+    font-style: italic;
+}
+
+#calculator #inputs div {
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+#calculator #inputs div input {
+    border: none;
+    padding-left: 5rem;
+    margin-left: 2rem;
+}
+
+#calculator p {
+    font-size: 1.4rem;
+    color: #fff;
+}
+
+#calculator #operations, #calculator #controls {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+#calculator button {
+    height: 3rem;
+    border: #fff solid 0.3rem;
+    color: #5c940d;
+    margin: 1rem;
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+#calculator #operations button {
+    width: 45%;
+    background-color: #c0eb75;
+}
+
+#calculator #controls button {
+    width: 40%;
+    background-color: #ffec99;
+    border: solid 0.3rem #f08c00;
+}
+
+#calculator button:hover {
+    transform: scale(1.05);
+    background-color: transparent !important;
+    cursor: pointer;
+}
+
+#calculator #operations button:hover{
+    border: #f08c00 dashed 0.3rem;
+    color: #f08c00;
+}
+
+#calculator #controls button:hover {
+    border: #e03131 dashed 0.3rem;
+    color: #e03131;
+}
+
+.disabledBtn {
+    border: #e03131 solid 0.2rem !important;
+    text-decoration: line-through red 0.2rem;
+    cursor: not-allowed !important;
+}
+
+.incorrectField {
+    border: none;
+    background: linear-gradient(to right, transparent, #ff3300 60%);
+    background-size: 400% 400%;
+    animation: gradient 1s ease infinite;
+}
+
+.blank {
+    animation: for_blank 0.7s ease infinite;
+    background-color: transparent;
+    color: #ff3300;
+    text-transform: uppercase;
+}
+
+@keyframes for_blank {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
