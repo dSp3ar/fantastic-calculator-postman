@@ -104,3 +104,62 @@ function showPrompt(showPromptBtn) {
         alert(`'${mood}', blah-blah... You are boring, bye!`);
     });
 }
+
+/******************************************************************************/
+
+main2();
+
+function main2() {
+    const image = document.querySelector('#change_background_and_image #image_part img');
+    const imageUrl = document.getElementById('your_image');
+    const buttonImg = document.querySelector('#change_background_and_image #image_part button');
+    const color = document.querySelector('#your_color');
+    const buttonBgr = document.querySelector('#change_background_and_image #background_part button');
+    const section = document.querySelector('#change_background_and_image');
+    const defaultBackground = window.getComputedStyle(section).backgroundColor;
+    const revertBtn = document.querySelector('#change_background_and_image > button');
+
+    renderImage(image, imageUrl, buttonImg);
+    changeBackground(color, buttonBgr, section);
+    revertChanges(revertBtn, image, defaultBackground, section, imageUrl, color);
+}
+
+function renderImage(image, imageUrl, button) {
+    button.addEventListener('click', () => {
+        if (!imageUrl.value) {
+            imageUrl.classList.add('incorrectField');
+        } else {
+            image.src = imageUrl.value;
+        }
+    });
+
+    imageUrl.addEventListener('click', () => {
+        imageUrl.classList.remove('incorrectField');
+    });
+
+    image.addEventListener('error', () => {
+        imageUrl.classList.add('incorrectField');
+    });
+}
+
+function changeBackground(color, button, section) {
+    button.addEventListener('click', () => {
+        if (!color.value.match(/^\#([\da-fA-F]{3}|[\da-fA-F]{6})$/)) {
+            color.classList.add('incorrectField');
+        } else {
+            section.style.backgroundColor = color.value;
+        }
+    });
+
+    color.addEventListener('click', () => {
+        color.classList.remove('incorrectField');
+    });
+}
+
+function revertChanges(revertBtn, image, defaultBackground, section, imageUrl, color) {
+    revertBtn.addEventListener('click', () => {
+        image.src = '#';
+        section.style.backgroundColor = defaultBackground;
+        imageUrl.value = color.value = "";
+    });
+}

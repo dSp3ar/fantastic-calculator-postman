@@ -35,7 +35,7 @@ header {
     align-items: center;
 }
 
-header h1 {
+header h1, #change_background_and_image h2 {
     background: linear-gradient(to right, #d6336c, #fcc419, #e03131, #be4bdb);
     background-clip: text;
     background-size: 400% 400%;
@@ -45,7 +45,8 @@ header h1 {
 
 main {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 #calculator {
@@ -58,6 +59,7 @@ main {
     align-items: center;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     padding: 5rem;
+    margin-bottom: 50rem;
 }
 
 #calculator #inputs {
@@ -156,4 +158,83 @@ main {
     100% {
         transform: scale(1);
     }
+}
+
+/******************************************************************/
+
+#change_background_and_image {
+    padding-top: 5rem;
+    width: 100%;
+    font-style: italic;
+    color: #343a40;
+    background-color: #20c997;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#change_background_and_image h2 {
+    font-size: 2.8rem;
+    text-transform: uppercase;
+}
+
+#change_background_and_image #image_part,
+#change_background_and_image #background_part {
+    font-size: 1.6rem;
+    min-height: 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5rem auto;
+}
+
+#change_background_and_image #image_part img {
+    min-width: 30rem;
+    width: 70%;
+}
+
+#change_background_and_image #image_part input, 
+#change_background_and_image #background_part input {
+    border: #000 solid 0.1rem;
+    font-size: 1.6rem;
+    margin: 2rem auto;
+    padding-left: 1rem;
+}
+
+#change_background_and_image #image_part button {
+    background-color: #d6336c;
+    border: #fff solid 0.2rem;
+    color: #fff;
+    font-size: 1.6rem;
+    height: 3rem;
+    min-width: 25rem;
+    max-width: 30rem;
+}
+
+#change_background_and_image #background_part button {
+    background-color: #f08c00;
+    border: #fff solid 0.2rem;
+    color: #fff;
+    font-size: 1.6rem;
+    height: 3rem;
+    min-width: 25rem;
+    max-width: 50rem;
+}
+
+#change_background_and_image button:hover {
+    transition: all ease-in-out 1s;
+    transform: rotate(1deg);
+    letter-spacing: 0.5rem;
+}
+
+#change_background_and_image button {
+    background-color: #e03131;
+    border: #fff solid 0.2rem;
+    color: #fff;
+    font-size: 1.6rem;
+    height: 3rem;
+    min-width: 25rem;
+    max-width: 30rem;
+    margin-bottom: 5rem;
 }
