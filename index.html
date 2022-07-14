@@ -61,6 +61,40 @@
             </div>
             <button>Revert changes</button>
         </section>
+        <section id="requests">
+            <h2>Making requests</h2>
+            <div>
+                <p>Choose the method:</p>
+                <select>
+                    <option value="get">GET</option>
+                    <option value="post">POST</option>
+                    <option value="put">PUT</option>
+                    <option value="delete">DELETE</option>
+                </select>
+            </div>
+            <div>
+                <p>Enter the URL:</p>
+                <input id="url" type="text" placeholder="url">
+            </div>
+            <div>
+                <p>Set headers (optional):</p>
+                <label for="hname">Name:</label>
+                <input id="hname" type="text" placeholder="header name">
+                <br>
+                <label for="hvalue">Value:</label>
+                <input id="hvalue" type="text" placeholder="header value">
+                <br>
+                <button id="setHeader">Set</button>
+            </div>
+            <div>
+                <p>Set data as JSON (optional)</p>
+                <textarea id="dataJson" cols="70" rows="20"></textarea>
+            </div>
+            <button id="send">Send the request</button>
+            <p>Response result:</p>
+            <textarea id="response" cols="70" rows="20" readonly></textarea>
+            <button id="clear">Clear</button>
+        </section>
     </main>
     <script src="./index.js"></script>
 </body>

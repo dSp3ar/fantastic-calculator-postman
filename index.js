@@ -163,3 +163,79 @@ function revertChanges(revertBtn, image, defaultBackground, section, imageUrl, c
         imageUrl.value = color.value = "";
     });
 }
+
+/********************************************************************************/
+
+main3();
+
+function main3() {
+    const hName = document.querySelector('#hname');
+    const hValue = document.querySelector('#hvalue');
+    const setBtn = document.querySelector('#setHeader');
+    const sendBtn = document.querySelector('#send');
+    const clearBtn = document.querySelector('#clear');
+    let headers = {};
+    
+    listenHeaders(setBtn, headers, hName, hValue);
+    sendRequest(sendBtn, headers);
+    clearResultArea(clearBtn);
+}
+
+function sendRequest(sendBtn, headers) {
+    sendBtn.addEventListener('click', async () => {
+        const method = document.querySelector('select').value;
+        const url = document.querySelector('#url').value;
+        const textAreaRequest = document.querySelector('#dataJson');
+        const textAreaResponse = document.querySelector('#response');
+        let res = null;
+
+        if (method.toUpperCase() === 'GET' || method.toUpperCase() === 'DELETE') {
+            res = await fetch(url, { method, headers });
+        } else {
+            res = await fetch(url, { method, headers, body: textAreaRequest.value });
+        }
+        let responseHeanders = {};
+        for (let [key, value] of res.headers) {
+            responseHeanders[key] = value;
+        }
+        const body = await res.json();
+        console.log("**********Response information**********");
+        console.log(prettierOutput(JSON.stringify({ ...responseHeanders, ...body.headers})));
+        console.log(body.data);
+        textAreaResponse.value = prettierOutput(JSON.stringify({ ...responseHeanders, ...body.headers})) + '\n\n' + body.data;
+        for (let h in headers) {
+            delete headers[h];
+        }
+        textAreaRequest.value = "";
+    });
+}
+
+function listenHeaders(setBtn, headers, hName, hValue) {
+    setBtn.addEventListener('click', () => {
+        headers[hName.value] = hValue.value;
+    });
+}
+
+function prettierOutput(str) {
+    let quote = 0;
+    let newStr = "";
+
+    for (let i = 0; i < str.length; i++) {
+        if (str[i] === '"' && !(quote % 4)) {
+            quote++;
+            newStr += '\n' + str[i];
+        } else if (str[i] === '"') {
+            quote++;
+            newStr += str[i];
+        } else {
+            newStr += str[i];
+        }
+    }
+    return newStr;
+}
+
+function clearResultArea(button) {
+    button.addEventListener('click', () => {
+        document.querySelector('#response').value = "";
+    });
+}

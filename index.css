@@ -35,7 +35,9 @@ header {
     align-items: center;
 }
 
-header h1, #change_background_and_image h2 {
+header h1, 
+#change_background_and_image h2,
+#requests h2 {
     background: linear-gradient(to right, #d6336c, #fcc419, #e03131, #be4bdb);
     background-clip: text;
     background-size: 400% 400%;
@@ -236,5 +238,76 @@ main {
     height: 3rem;
     min-width: 25rem;
     max-width: 30rem;
+    margin-bottom: 5rem;
+}
+
+/***************************************************************************/
+
+#requests {
+    background-color: #141d2b;
+    padding-top: 5rem;
+    width: 100%;
+    font-style: italic;
+    color: #343a40;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#requests h2 {
+    font-size: 2.8rem;
+    text-transform: uppercase;
+    margin-bottom: 5rem;
+}
+
+#requests p {
+    font-size: 1.8rem;
+    color: #a4b1cd;
+    margin-bottom: 2rem;
+}
+
+#requests select, #requests #setHeader, #clear {
+    background-color: #9fef00;
+    border: none;
+    height: 3rem;
+    min-width: 25rem;
+    max-width: 30rem;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+#requests select:hover, #requests button:hover {
+    transition: transform 1s ease;
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+#requests #url {
+    min-width: 25rem;
+    max-width: 30rem;
+    color: #000;
+    margin-bottom: 3rem;
+}
+
+#requests label {
+    color: #a4b1cd;
+    font-size: 1.4rem;
+}
+
+#requests input {
+    margin-bottom: 2rem;
+}
+
+#requests #send {
+    width: 10rem;
+    height: 10rem;
+    background-color: #9fef00;
+    border: #9fef00 dotted 0.5rem;
+    background-clip: padding-box;
+    border-radius: 50%;
+    margin-bottom: 3rem;
+}
+
+#requests textarea {
     margin-bottom: 5rem;
 }
